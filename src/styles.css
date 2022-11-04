@@ -1,10 +1,5 @@
-body,
-html,
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'InterRegular';
-}
+
+
 
 @font-face {
     font-family: 'InterRegular';
@@ -21,4 +16,4 @@ html,
     font-family: 'InterBlack';
     font-weight: 900;
     src: local('Inter'), url(./assets/fonts/Inter-Black.ttf) format('truetype');
-}
+};
