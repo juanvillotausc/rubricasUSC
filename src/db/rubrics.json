@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Diagrama UML",
+    "total": 0,
+    "commentaries": null,
+    "proposers": null,
+    "criterions": [
+      {
+        "id": "c-a1ba1sd1aasd111s4",
+        "title_ctro": "Criterio 1",
+        "descripters": [
+          {
+            "id": "d-a1ba1sd1aasd111s4",
+            "title_desc": "Descripter 1",
+            "contextA": "contextA",
+            "contextB": "contextB",
+            "average": 100,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "id": "c-a1ba1sdeewwwwwws4",
+        "title_ctro": "Criterio 2",
+        "descripters": [
+          {
+            "id": "d-a1ba1sd1aassdddsds4",
+            "result": "No Logrado",
+            "name_d": "Descripter 1",
+            "contextA": "contextA",
+            "contextB": "contextB",
+            "average": 100,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+]

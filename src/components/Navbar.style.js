@@ -38,11 +38,10 @@ export const Section = styled.div`
         max-width: 900px;
     }
     @media (max-width: 1024px) {
-        max-width: 700px;
+        max-width: 850px;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 868px) {
         display: none;
-
     }
 
 `;
@@ -76,7 +75,7 @@ export const NotAllowed = styled.div`
     overflow: hidden;
     display: none ;
     height: 50vh;
-    @media (max-width: 768px) {
+    @media (max-width: 868px) {
         display: flex;
         width: 100%;
         flex-direction: column;

@@ -29,27 +29,21 @@ const MOCK_CRITERIONS = [
         criterion: "Criterio 1",
         comments: "Sin eso",
         solution: "Hacer trabajo",
-        descripters: MOCK_DESCRIPTER,
-        total: 90
+        descripters: MOCK_DESCRIPTER
     },
     {
         criterion: "Criterio 2",
         result: "Excelente",
         comments: "Sin eso",
         solution: "Hacer trabajo",
-        descripters: MOCK_DESCRIPTER,
-        total: 100
+        descripters: MOCK_DESCRIPTER
     },
 ];
 
-const MOCK_RUBRIC = [
-    {
-        criterions: MOCK_CRITERIONS,
-        total: 150
-    }
-];
 
 const HomeScreen = () => {
+
+
     const theme = useTheme();
     return (
         <>

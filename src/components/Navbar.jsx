@@ -26,7 +26,7 @@ const Navbar = ({ setTheme }) => {
                             </Typography>
                         </Button>
                     </Link>
-                    <Link style={{ textDecoration: 'none' }} to="/create">
+                    <Link style={{ textDecoration: 'none' }} to="/rubric">
                         <Button>
                             <Typography>
                                 Create rubric

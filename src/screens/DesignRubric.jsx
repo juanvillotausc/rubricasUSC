@@ -1,9 +1,11 @@
-import { Section } from "../components/Navbar.style";
+import { Outlet } from "react-router-dom";
+import { Section, Typography } from "../components/Navbar.style";
 
 const DesignRubric = () => {
     return (
         <Section>
-            DesignRubric
+            <Typography>Design</Typography>
+            <Outlet />
         </Section>
     )
 }
