@@ -31,16 +31,16 @@ export const Section = styled.div`
     padding-top: 1em;
     padding-bottom: 1em;
     margin: auto;
+    @media (max-width: 2560px) {
+        max-width: 1340px;
+    }
     @media (max-width: 1440px) {
         max-width: 1180px;
     }
-    @media (max-width: 1230px) {
-        max-width: 900px;
+    @media (max-width: 1220px) {
+        max-width: 980px;
     }
     @media (max-width: 1024px) {
-        max-width: 850px;
-    }
-    @media (max-width: 868px) {
         display: none;
     }
 
@@ -75,7 +75,7 @@ export const NotAllowed = styled.div`
     overflow: hidden;
     display: none ;
     height: 50vh;
-    @media (max-width: 868px) {
+    @media (max-width: 1024px) {
         display: flex;
         width: 100%;
         flex-direction: column;

@@ -1,14 +1,12 @@
-import { Box, Grid } from "@mui/material";
-import { Criterio, TableHead } from "../components";
-import { NotAllowed, Section, Typography } from "../components/Navbar.style";
+import { NotAllowed, Typography } from "../components/Navbar.style";
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import { useTheme } from "styled-components";
 import Rubric from "../components/Rubric";
 
 const MOCK_DESCRIPTER = [
     {
-        title: "Descripter 1",
-        result: "Excelente",
+        title: "Descripter 1sdsdasd",
+        result: "No Logrado",
         average: 0,
         value: 50,
         contextA: "Context A",
@@ -16,7 +14,7 @@ const MOCK_DESCRIPTER = [
     },
     {
         title: "Descripter 2",
-        result: "Excelente",
+        result: "No Logrado",
         average: 0,
         value: 50,
         contextA: "Context A",
@@ -33,7 +31,7 @@ const MOCK_CRITERIONS = [
     },
     {
         criterion: "Criterio 2",
-        result: "Excelente",
+        result: "No Logrado",
         comments: "Sin eso",
         solution: "Hacer trabajo",
         descripters: MOCK_DESCRIPTER
@@ -50,7 +48,7 @@ const HomeScreen = () => {
             <Rubric criterions={MOCK_CRITERIONS} />
             <NotAllowed>
                 <PhoneAndroidIcon style={{ transition: "all 0.3s ease-in", textAlign: "center", width: "100%", color: theme.text, fontSize: 70 }} />
-                <Typography style={{ color: theme.text }}>Tablet or view <br /> Phone not permitted</Typography>
+                <Typography style={{ color: theme.text }}>Devices frames <br /> not allowed.</Typography>
             </NotAllowed>
         </>
     )

@@ -1,7 +1,6 @@
 import { Box, Grid } from "@mui/material"
-import Criterio from "./Criterio"
-import { Section } from "./Navbar.style"
-import TableHead from "./TableHead"
+import { Item, Section, Typography } from "./Navbar.style"
+import { TableBody, TableHead } from "../components";
 
 const Rubric = ({ criterions }) => {
     return (
@@ -10,9 +9,7 @@ const Rubric = ({ criterions }) => {
                 <TableHead />
             </Box>
             <Box sx={{ flexGrow: 1, marginTop: 1 }}>
-                <Grid container spacing={1}>
-                    <Criterio criterions={criterions} />
-                </Grid>
+                <TableBody criterions={criterions} />
             </Box>
         </Section>
     )

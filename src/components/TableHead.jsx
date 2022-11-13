@@ -40,6 +40,6 @@ const TableHead = () => {
             </Grid>
         </Grid>
     )
-}
+};
 
-export default TableHead
+export default TableHead;
