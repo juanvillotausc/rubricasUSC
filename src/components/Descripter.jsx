@@ -31,7 +31,7 @@ const Descripter = ({ descripters }) => {
           item
           style={{ height: "100%", gridColumnStart: 4, gridRowStart: "span 2" }}
         >
-          <Item>
+          <Item style={{ backgroundColor: "#d32f2f36" }}>
             <Typography>{result}</Typography>
           </Item>
         </Grid>

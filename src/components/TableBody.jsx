@@ -1,7 +1,7 @@
 import { Grid, TextField } from "@mui/material";
 import { Fragment } from "react";
 import { Descripter } from ".";
-import { Item, Typography } from "./Navbar.style";
+import { InputField, Item, Typography } from "./Navbar.style";
 
 const TableBody = ({ criterions = MOCKS }) => {
     return (
@@ -23,18 +23,12 @@ const TableBody = ({ criterions = MOCKS }) => {
                     </Grid>
                     <Grid item xs={2}>
                         <Item>
-                            <TextField
-                                maxRows={10}
-                                minRows={10}
-                                multiline
-                                maxLength={90}
-                                sx={{ color: "white", overflow: "hidden" }}
-                            />
+                            <InputField multiline placeholder="Comentarios" />
                         </Item>
                     </Grid>
                     <Grid item xs={2}>
                         <Item>
-                            <Typography>{solution}</Typography>
+                            <InputField multiline placeholder="Propuestas de solución" />
                         </Item>
                     </Grid>
                 </Fragment>

@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const ToolbarContainer = styled.div`
@@ -11,6 +12,20 @@ export const Typography = styled.p`
     text-align: center;
     transition: all 0.3s ease-in ;
     font-size: 0.875rem;
+`;
+
+export const Title = styled.h1`
+    color: ${({ theme }) => theme.text};
+    text-transform: none;
+    font-family:  "InterBold";
+    transition: all 0.3s ease-in ;
+    font-size: 4.5em;
+    background: #FFF700;
+    background: linear-gradient(to right, #FFF700 0%, #FF0593 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 `;
 
 export const Logo = styled.h3`
@@ -45,6 +60,21 @@ export const Section = styled.div`
     }
 
 `;
+
+export const InputField = styled(TextField)(({ theme }) => ({
+    '&.MuiTextField-root': {
+        height: "100%"
+    },
+    '& .MuiInputBase-formControl': {
+        height: "100%",
+        color: theme.text,
+    },
+    '& .MuiInputBase-input': {
+        height: "100% !important",
+        overflow: "visible !important",
+    }
+}));
+
 
 export const Item = styled.div`
     background-color: ${({ theme }) => theme.item};
@@ -109,3 +139,13 @@ export const GlobalStyle = createGlobalStyle`
         transition: all 0.3s ease-in ;
     }
 `;
+
+export const ButtonStyled = styled(Button)(({ theme }) => ({
+    color: `${theme.text} !important`,
+    width: "30%",
+    backgroundColor: `${theme.bgcHeroBtn} !important`,
+    '&:hover': {
+        backgroundColor: `${theme.bgcHover} !important`,
+    },
+    textTransform: "none !important",
+}));

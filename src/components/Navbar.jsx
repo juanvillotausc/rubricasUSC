@@ -1,12 +1,16 @@
 import { AppBar, Button, Toolbar } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Logo, ToolbarContainer, Typography } from './Navbar.style';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useTheme } from 'styled-components'
+import MenuDesign from './MenuDesign';
+import { DataContext } from '../context/DataContext';
+import { useContext } from 'react';
 
-const Navbar = ({ setTheme }) => {
+const Navbar = () => {
     const theme = useTheme();
+    const { setTheme } = useContext(DataContext);
 
     const toggleTheme = () => {
         setTheme((currentMode) => currentMode === 'dark' ? 'light' : 'dark');
@@ -26,19 +30,14 @@ const Navbar = ({ setTheme }) => {
                             </Typography>
                         </Button>
                     </Link>
-                    <Link style={{ textDecoration: 'none' }} to="/rubric">
-                        <Button>
-                            <Typography>
-                                Create rubric
-                            </Typography>
-                        </Button>
-                    </Link>
+                    <MenuDesign />
                     <Button onClick={toggleTheme} style={{ boxShadow: "none" }}>
                         {theme.text === '#ffffffd4' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
                     </Button>
                 </Toolbar>
             </ToolbarContainer>
-        </AppBar>
+            <Outlet />
+        </AppBar >
     )
 }
 
