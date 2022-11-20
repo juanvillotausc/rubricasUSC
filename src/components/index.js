@@ -6,3 +6,5 @@ export { default as TableHead } from "./TableHead";
 export { default as Navigation } from "./Navigation";
 export { default as StepperMui } from "./StepperMui";
 export { default as MenuDesign } from "./MenuDesign";
+export { default as DataGeneral } from "./Stepper/DataGeneral";
+export { default as AddCriterion } from "./Stepper/AddCriterion";

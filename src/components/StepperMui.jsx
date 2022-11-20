@@ -5,23 +5,63 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { DataGeneral, AddCriterion } from './index';
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+const steps = ['Datos generales', 'Definir criterios', 'Ajustar porcentajes', "Agregar descriptores", "Ajustar porcentajes Descriptores"];
+
+const stepContent = (step) => {
+    switch (step) {
+        case 0:
+            return <DataGeneral />
+        case 1:
+            return (
+                <AddCriterion />
+            );
+        case 2:
+            return (
+                <h1>{step + 1}</h1>
+            );
+        case 3:
+            return (
+                <h1>{step + 1}</h1>
+            );
+        case 4:
+            return (
+                <h1>{step + 1}</h1>
+            );
+    };
+};
+
 
 const StepperMui = () => {
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
+    const [activeStep, setActiveStep] = useState(0);
+    const [skipped, setSkipped] = useState(new Set());
+
+    const methods = useForm({
+        defaultValues: {
+            name: "",
+            subject: "",
+            signature: "",
+            date: "",
+            competency: "",
+            learnResult: "",
+            criterions: []
+        },
+    });
 
     const isStepOptional = (step) => {
-        return step === 1;
+        return step === 6;
     };
 
     const isStepSkipped = (step) => {
         return skipped.has(step);
     };
 
-    const handleNext = () => {
+    const handleNext = (data) => {
         let newSkipped = skipped;
+        console.log(data);
         if (isStepSkipped(activeStep)) {
             newSkipped = new Set(newSkipped.values());
             newSkipped.delete(activeStep);
@@ -56,7 +96,7 @@ const StepperMui = () => {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Stepper activeStep={activeStep}>
+            <Stepper activeStep={activeStep} style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 {steps.map((label, index) => {
                     const stepProps = {};
                     const labelProps = {};
@@ -76,7 +116,7 @@ const StepperMui = () => {
                 })}
             </Stepper>
             {activeStep === steps.length ? (
-                <React.Fragment>
+                <>
                     <Typography sx={{ mt: 2, mb: 1 }}>
                         All steps completed - you&apos;re finished
                     </Typography>
@@ -84,31 +124,39 @@ const StepperMui = () => {
                         <Box sx={{ flex: '1 1 auto' }} />
                         <Button onClick={handleReset}>Reset</Button>
                     </Box>
-                </React.Fragment>
+                </>
             ) : (
-                <React.Fragment>
-                    <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Button
-                            color="inherit"
-                            disabled={activeStep === 0}
-                            onClick={handleBack}
-                            sx={{ mr: 1 }}
-                        >
-                            Back
-                        </Button>
-                        <Box sx={{ flex: '1 1 auto' }} />
-                        {isStepOptional(activeStep) && (
-                            <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                                Skip
-                            </Button>
-                        )}
+                <>
+                    <FormProvider {...methods}>
+                        <form onSubmit={methods.handleSubmit(handleNext)}>
+                            {stepContent(activeStep)}
+                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, width: '100%' }}>
+                                <Button
+                                    color="inherit"
+                                    disabled={activeStep === 0}
+                                    onClick={handleBack}
+                                    sx={{ mr: 1 }}
+                                    style={{ textTransform: 'none' }}
+                                >
+                                    Atrás
+                                </Button>
+                                <Box sx={{ flex: '1 1 auto' }} />
+                                {isStepOptional(activeStep) && (
+                                    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                                        Skip
+                                    </Button>
+                                )}
 
-                        <Button onClick={handleNext}>
-                            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                        </Button>
-                    </Box>
-                </React.Fragment>
+                                <Button
+                                    style={{ textTransform: 'none' }}
+                                    type='submit'
+                                >
+                                    {activeStep === steps.length - 1 ? 'Crear' : 'Siguiente'}
+                                </Button>
+                            </Box>
+                        </form>
+                    </FormProvider>
+                </>
             )}
         </Box>
     );

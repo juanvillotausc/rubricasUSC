@@ -19,8 +19,8 @@ class AdminRubrics {
         });
     };
 
-    createRubric(name = '') {
-        const rubric = new Rubric(name);
+    createRubric(name = '', subject = '', signature = '', date = '') {
+        const rubric = new Rubric(name, subject, signature, date);
         this._listRubric[rubric.id] = rubric;
         return rubric;
     };

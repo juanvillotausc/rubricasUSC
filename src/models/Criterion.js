@@ -5,11 +5,15 @@ class Criterion {
 
     id = "";
     title_ctro = "";
+    commentaries = "";
+    proposers = "";
     _listDescripters = {};
 
     constructor(name) {
         this.id = `c-${uuidv4()}`;
         this.title_ctro = name;
+        this.commentaries = " ";
+        this.proposers = " ";
         this._listDescripters = {};
     };
 

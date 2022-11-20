@@ -23,20 +23,11 @@ const Navbar = () => {
                     <Link style={{ textDecoration: 'none', flexGrow: 1 }} to="/">
                         <Logo>Rubrics <br /> USC</Logo>
                     </Link>
-                    <Link style={{ textDecoration: 'none' }} to="/">
-                        <Button>
-                            <Typography>
-                                Home
-                            </Typography>
-                        </Button>
-                    </Link>
-                    <MenuDesign />
                     <Button onClick={toggleTheme} style={{ boxShadow: "none" }}>
                         {theme.text === '#ffffffd4' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
                     </Button>
                 </Toolbar>
             </ToolbarContainer>
-            <Outlet />
         </AppBar >
     )
 }

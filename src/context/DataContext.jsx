@@ -2,11 +2,8 @@ import React, { createContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "../components";
 import useLocalStorageState from "../hooks/useLocalStorageState";
-import AdminRubrics from '../models/AdminRubrics';
 
 export const DataContext = createContext();
-
-const AdminRubric = new AdminRubrics();
 
 const DataProvider = ({ children }) => {
 
@@ -16,7 +13,6 @@ const DataProvider = ({ children }) => {
     return (
         <DataContext.Provider value={{
             dataRubric,
-            AdminRubric,
             setDataRubric,
             theme,
             setTheme,

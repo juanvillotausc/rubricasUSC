@@ -1,23 +1,27 @@
+import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { StepperMui } from "../components";
+import Close from '@mui/icons-material/Close';
 
 const styleDiv = {
-
-    width: "100vw",
     height: "100vh",
+    width: '100%',
     position: "absolute",
     top: 0,
-    backgroundColor: "rgba(91, 112, 131, 0.4)",
+    backgroundColor: "rgba(0, 0, 0, 0.534)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 };
 
 const styleModal = {
-    width: "350px",
-    height: "200px",
+    padding: "2rem",
+    width: "760px",
+    height: "550px",
     backgroundColor: "white",
     borderRadius: "5px",
+    position: 'relative',
+    overflow: "scroll",
 };
 
 const ModalCreate = () => {
@@ -27,8 +31,13 @@ const ModalCreate = () => {
     return (
         <div style={styleDiv}>
             <div style={styleModal}>
+                <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <Typography fontWeight="bold" fontSize={20}>Design rubric</Typography>
+                    <Button onClick={() => navigate(-1)}>
+                        <Close />
+                    </Button>
+                </div>
                 <StepperMui />
-                <button onClick={() => navigate(-1)}>Close</button>
             </div>
         </div>
     )
