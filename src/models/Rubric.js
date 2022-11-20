@@ -33,6 +33,7 @@ class Rubric {
     createCriterion(nameCriterion = '') {
         const criterion = new Criterion(nameCriterion);
         this._listCriterions[criterion.id] = criterion;
+        return criterion;
     };
 };
 

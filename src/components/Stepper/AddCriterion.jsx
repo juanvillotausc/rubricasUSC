@@ -7,24 +7,24 @@ const AddCriterion = () => {
     const { control, setValue, getValues } = useFormContext();
     const { dataRubric, setDataRubric } = useContext(DataContext);
     const [criterions, setCriterions] = useState(dataRubric.listCriterionsArr);
-
+    console.log(criterions);
     const handleAddCriterion = (e, index) => {
         const criterion = dataRubric.createCriterion();
-        setCriterions([...criterions, criterion])
+        console.log(criterion);
+        setCriterions([...criterions, { criterion }]);
     };
-    const handleChange = (e, index) => {
-        const { name, value } = e.target;
-        setCriterions([...criterions, { name: value }]);
-        console.log(dataRubric);
+    const handleChange = (e, criterion) => {
 
+        const { name, value } = e.target;
+        criterion['title_ctro'] = value;
     };
 
     return (
         <>
             <Button onClick={handleAddCriterion}>Add</Button>
             {criterions.map((criterion, index) => {
+                console.log(criterion);
                 return (
-
                     <TextField
                         key={index}
                         required
@@ -33,7 +33,7 @@ const AddCriterion = () => {
                         variant="outlined"
                         placeholder="Enter rubric name"
                         margin='normal'
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, criterion)}
                         fullWidth
 
                     />
