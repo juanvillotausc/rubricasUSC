@@ -8,17 +8,27 @@ class Criterion {
     commentaries = "";
     proposers = "";
     _listDescripters = {};
-
+    value = "";
+    subtotal = "";
     constructor(name) {
         this.id = `c-${uuidv4()}`;
         this.title_ctro = name;
         this.commentaries = " ";
         this.proposers = " ";
         this._listDescripters = {};
+        this.value = 0;
+        this.subtotal = 0;
     };
 
     get listDescriptersArr() {
         return Object.values(this._listDescripters);
+    };
+
+    set newValue(value) {
+        this.value = value;
+    };
+    set newSubtotal(subtotal) {
+        this.subtotal = subtotal;
     };
 
     createDescripter(title, contextA, contextB) {

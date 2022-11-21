@@ -2,7 +2,7 @@ import { MenuItem, TextField } from '@mui/material';
 import React, { useState } from 'react'
 import { Controller, useFormContext } from 'react-hook-form';
 
-const currencies = [
+const signatures = [
     {
         value: 'Gestion de proyectos TI',
         label: 'Gestion de proyectos TI',
@@ -15,21 +15,23 @@ const currencies = [
 
 const DataGeneral = () => {
     const { control } = useFormContext();
-    const [currency, setCurrency] = useState(currencies[0].value);
+    const [signature, setSignature] = useState(signatures[0].value);
 
     const handleChange = (event) => {
-        setCurrency(event.target.value);
+        const { value } = event.target;
+        setSignature(value);
     };
     return (
         <>
             <Controller
                 control={control}
                 name="name"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         required
-                        id="rubric-name"
-                        label="Name"
+                        id="name"
+                        label="Nombre"
                         variant="outlined"
                         placeholder="Enter rubric name"
                         margin='normal'
@@ -41,6 +43,7 @@ const DataGeneral = () => {
             <Controller
                 control={control}
                 name="subject"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         required
@@ -57,6 +60,7 @@ const DataGeneral = () => {
             <Controller
                 control={control}
                 name="signature"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         select
@@ -66,12 +70,12 @@ const DataGeneral = () => {
                         variant="outlined"
                         placeholder="Curso"
                         margin='normal'
-                        value={currency}
+                        value={signature}
                         onChange={handleChange}
                         style={{ marginRight: 5, width: "35%" }}
                         {...field}
                     >
-                        {currencies.map((option) => (
+                        {signatures.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                             </MenuItem>
@@ -82,10 +86,11 @@ const DataGeneral = () => {
             <Controller
                 control={control}
                 name="date"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         required
-                        id="dateRubric"
+                        id="date"
                         label=""
                         variant="outlined"
                         placeholder="Fecha de creacion"
@@ -98,6 +103,7 @@ const DataGeneral = () => {
             <Controller
                 control={control}
                 name="competency"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         id="competency"
@@ -116,6 +122,7 @@ const DataGeneral = () => {
             <Controller
                 control={control}
                 name="learnResult"
+                defaultValue={""}
                 render={({ field }) => (
                     <TextField
                         id="learnResult"

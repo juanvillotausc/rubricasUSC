@@ -8,3 +8,4 @@ export { default as StepperMui } from "./StepperMui";
 export { default as MenuDesign } from "./MenuDesign";
 export { default as DataGeneral } from "./Stepper/DataGeneral";
 export { default as AddCriterion } from "./Stepper/AddCriterion";
+export { default as PercentagesCriterions } from "./Stepper/PercentagesCriterions";

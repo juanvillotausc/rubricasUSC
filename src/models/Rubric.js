@@ -8,15 +8,19 @@ class Rubric {
     subject = "";
     signature = "";
     date = "";
+    competency = "";
+    learnResult = "";
     total = 0;
     _listCriterions = {};
 
-    constructor(name, subject, signature, date) {
+    constructor(name, subject, signature, date, competency, learnResult) {
         this.id = `r-${uuidv4()}`;
         this._listCriterions = {};
         this.name = name;
         this.subject = subject;
         this.signature = signature;
+        this.competency = competency;
+        this.learnResult = learnResult;
         this.date = date;
         this.total = 0;
         this._listCriterions = {};
@@ -30,11 +34,21 @@ class Rubric {
         this.name = name;
     };
 
+    set totalPoint(total) {
+        this.total = total;
+    };
+
     createCriterion(nameCriterion = '') {
         const criterion = new Criterion(nameCriterion);
         this._listCriterions[criterion.id] = criterion;
         return criterion;
     };
+
+    deleteCriterion(id = '') {
+        if (this._listCriterions[id]) {
+            delete this._listCriterions[id];
+        }
+    }
 };
 
 

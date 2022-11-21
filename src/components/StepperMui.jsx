@@ -7,22 +7,21 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { DataGeneral, AddCriterion } from './index';
+import { DataGeneral, AddCriterion, PercentagesCriterions } from './index';
+import { DataContext } from '../context/DataContext';
+import { useContext } from 'react';
 
-const steps = ['Datos generales', 'Definir criterios', 'Ajustar porcentajes', "Agregar descriptores", "Ajustar porcentajes Descriptores"];
+const steps = ['Datos generales', 'Definir criterios', 'Ajustar porcentajes Criterios', "Agregar descriptores", "Ajustar porcentajes Descriptores"];
 
 const stepContent = (step) => {
     switch (step) {
         case 0:
             return <DataGeneral />
         case 1:
-            return (
-                <AddCriterion />
-            );
+            return <AddCriterion />
+
         case 2:
-            return (
-                <h1>{step + 1}</h1>
-            );
+            return <PercentagesCriterions />
         case 3:
             return (
                 <h1>{step + 1}</h1>
@@ -38,18 +37,9 @@ const stepContent = (step) => {
 const StepperMui = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
+    const { dataRubric, setDataRubric } = useContext(DataContext);
 
-    const methods = useForm({
-        defaultValues: {
-            name: "",
-            subject: "",
-            signature: "",
-            date: "",
-            competency: "",
-            learnResult: "",
-            criterions: []
-        },
-    });
+    const methods = useForm(dataRubric);
 
     const isStepOptional = (step) => {
         return step === 6;
@@ -61,7 +51,10 @@ const StepperMui = () => {
 
     const handleNext = (data) => {
         let newSkipped = skipped;
+        console.log(dataRubric);
         console.log(data);
+        const newdataRubric = Object.assign(dataRubric, data);
+        setDataRubric(newdataRubric);
         if (isStepSkipped(activeStep)) {
             newSkipped = new Set(newSkipped.values());
             newSkipped.delete(activeStep);

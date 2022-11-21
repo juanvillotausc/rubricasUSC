@@ -16,7 +16,7 @@ const styleDiv = {
 
 const styleModal = {
     padding: "2rem",
-    width: "760px",
+    width: "820px",
     height: "550px",
     backgroundColor: "white",
     borderRadius: "5px",
