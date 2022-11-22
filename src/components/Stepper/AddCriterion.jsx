@@ -1,29 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, TextField } from '@mui/material';
-import { useFormContext } from 'react-hook-form';
 import { DataContext } from '../../context/DataContext';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 const AddCriterion = () => {
     const { dataRubric } = useContext(DataContext);
     const [criterions, setCriterions] = useState(dataRubric.listCriterionsArr);
-    const [values, setValues] = useState([]);
 
     const handleAddCriterion = () => {
         const criterion = dataRubric.createCriterion();
-
         setCriterions([...criterions, criterion]);
         console.log(dataRubric);
-    };
-
-    const handleValueCriterion = () => {
-
-        if (criterions.length === 0) return;
-        console.log(criterions);
-        const list = criterions.map((criterion, index) => {
-            console.log(criterion);
-        });
-        setCriterions(list);
     };
 
     const handleRemove = (id, index) => {
@@ -41,15 +28,12 @@ const AddCriterion = () => {
         setCriterions(list);
     };
 
-    useEffect(() => {
-        handleValueCriterion();
-    }, [criterions])
-
 
     return (
         <>
             <Button onClick={handleAddCriterion}>Add</Button>
             {criterions.map((criterion, index) => {
+                criterion.newValue = 100 / criterions.length;
                 return (
                     <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
                         <TextField
@@ -72,7 +56,7 @@ const AddCriterion = () => {
                             <RemoveCircleOutlineIcon />
                         </Button>
 
-                        <h5>{criterion.value}%</h5>
+                        <h5>{criterion.value.toFixed(2)}%</h5>
 
                     </div>
                 );
