@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, TextField } from '@mui/material';
 import { DataContext } from '../../context/DataContext';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const AddCriterion = () => {
     const { dataRubric } = useContext(DataContext);
@@ -10,7 +11,6 @@ const AddCriterion = () => {
     const handleAddCriterion = () => {
         const criterion = dataRubric.createCriterion();
         setCriterions([...criterions, criterion]);
-        console.log(dataRubric);
     };
 
     const handleRemove = (id, index) => {
@@ -18,7 +18,6 @@ const AddCriterion = () => {
         list.splice(index, 1);
         setCriterions(list);
         dataRubric.deleteCriterion(id);
-        console.log(dataRubric);
     };
 
     const handleChange = (e, index) => {
@@ -31,7 +30,15 @@ const AddCriterion = () => {
 
     return (
         <>
-            <Button onClick={handleAddCriterion}>Add</Button>
+            <div style={{ display: 'flex', width: '100%', justifyContent: "center", padding: 20 }}>
+                <Button
+                    sx={{ width: "100%" }}
+                    onClick={handleAddCriterion}
+                    style={{ textTransform: 'none' }}
+                >
+                    <AddCircleIcon color="success" />
+                </Button>
+            </div>
             {criterions.map((criterion, index) => {
                 criterion.newValue = 100 / criterions.length;
                 return (

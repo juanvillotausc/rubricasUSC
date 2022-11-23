@@ -34,6 +34,7 @@ class Criterion {
     createDescripter(title, contextA, contextB) {
         const descripter = new Descripter(title, contextA, contextB);
         this._listDescripters[descripter.id] = descripter;
+        return descripter;
     };
 };
 

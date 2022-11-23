@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { DataGeneral, AddCriterion, PercentagesCriterions } from './index';
+import { DataGeneral, AddCriterion, AddDescripter, AdjustCriterion, AdjustDescripter } from './index';
 import { DataContext } from '../context/DataContext';
 import { useContext } from 'react';
 
@@ -19,17 +19,12 @@ const stepContent = (step) => {
             return <DataGeneral />
         case 1:
             return <AddCriterion />
-
         case 2:
-            return <PercentagesCriterions />
+            return <AdjustCriterion />
         case 3:
-            return (
-                <h1>{step + 1}</h1>
-            );
+            return <AddDescripter />
         case 4:
-            return (
-                <h1>{step + 1}</h1>
-            );
+            return <AdjustDescripter />
     };
 };
 
@@ -50,11 +45,24 @@ const StepperMui = () => {
     };
 
     const handleNext = (data) => {
+
         let newSkipped = skipped;
+
         console.log(dataRubric);
-        console.log(data);
+
         const newdataRubric = Object.assign(dataRubric, data);
         setDataRubric(newdataRubric);
+
+        if (activeStep === 1 && dataRubric.listCriterionsArr.length === 0) return alert("Debe agregar almenos un criterio");
+
+        const initialValue = 0;
+
+        const sum = dataRubric.listCriterionsArr
+            .reduce((acc, ctro) => acc + ctro.value, initialValue);
+
+        if (activeStep === 2 && sum !== 100) return alert("Los porcentajes deben sumar 100%")
+
+
         if (isStepSkipped(activeStep)) {
             newSkipped = new Set(newSkipped.values());
             newSkipped.delete(activeStep);

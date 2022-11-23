@@ -32,7 +32,7 @@ const ModalCreate = () => {
         <div style={styleDiv}>
             <div style={styleModal}>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <Typography fontWeight="bold" fontSize={20}>Design rubric</Typography>
+                    <Typography fontWeight="bold" fontSize={20}>Diseñar rubrica</Typography>
                     <Button onClick={() => navigate(-1)}>
                         <Close />
                     </Button>
