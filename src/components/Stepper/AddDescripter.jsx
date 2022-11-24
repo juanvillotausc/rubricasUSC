@@ -84,7 +84,7 @@ const AddDescripter = () => {
                         </Button>
                         {/* Descripter */}
                         {criterion.listDescriptersArr.map((descripter, index) => {
-
+                            descripter.newValue = (100 / criterion.listDescripterArr.length)
                             return (
                                 <div
                                     key={index}
