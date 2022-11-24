@@ -21,7 +21,7 @@ const Navbar = () => {
             <ToolbarContainer>
                 <Toolbar style={{ alignItems: 'left', minHeight: 90 }}>
                     <Link style={{ textDecoration: 'none', flexGrow: 1 }} to="/">
-                        <Logo>UscRubrics</Logo>
+                        <Logo>Rubrics-Usc</Logo>
                     </Link>
                     <Button
                         onClick={toggleTheme}
