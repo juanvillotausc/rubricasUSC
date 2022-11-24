@@ -21,7 +21,7 @@ const Navbar = () => {
             <ToolbarContainer>
                 <Toolbar style={{ alignItems: 'left', minHeight: 90 }}>
                     <Link style={{ textDecoration: 'none', flexGrow: 1 }} to="/">
-                        <Logo>Rubrics <br /> USC</Logo>
+                        <Logo>UscRubrics</Logo>
                     </Link>
                     <Button onClick={toggleTheme} style={{ boxShadow: "none" }}>
                         {theme.text === '#ffffffd4' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}

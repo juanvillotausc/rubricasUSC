@@ -28,7 +28,7 @@ const AdjustPorcentages = () => {
                             required
                             type="number"
                             name="value"
-                            value={criterion.value}
+                            value={Math.round(criterion.value)}
                             id={`value${index + 1}`}
                             label={criterion.title_ctro}
                             variant="outlined"

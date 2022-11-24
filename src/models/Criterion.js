@@ -31,11 +31,17 @@ class Criterion {
         this.subtotal = subtotal;
     };
 
-    createDescripter(title, contextA, contextB) {
-        const descripter = new Descripter(title, contextA, contextB);
+    createDescripter(title = '') {
+        const descripter = new Descripter(title);
         this._listDescripters[descripter.id] = descripter;
         return descripter;
     };
+
+    deleteDescripter(id = '') {
+        if (this._listDescripters[id]) {
+            delete this._listDescripters[id];
+        }
+    }
 };
 
 export default Criterion;

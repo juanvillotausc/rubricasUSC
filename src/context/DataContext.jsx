@@ -9,6 +9,7 @@ const DataProvider = ({ children }) => {
 
     const [dataRubric, setDataRubric] = useState({});
     const [theme, setTheme] = useLocalStorageState("theme", "dark");
+    const [stepCompleted, setStepCompleted] = useState(true);
 
     return (
         <DataContext.Provider value={{
@@ -16,6 +17,8 @@ const DataProvider = ({ children }) => {
             setDataRubric,
             theme,
             setTheme,
+            stepCompleted,
+            setStepCompleted
         }}>
             <ThemeProvider theme={Theme[theme]}>
                 {children}

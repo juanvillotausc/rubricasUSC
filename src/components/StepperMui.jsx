@@ -32,7 +32,7 @@ const stepContent = (step) => {
 const StepperMui = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
-    const { dataRubric, setDataRubric } = useContext(DataContext);
+    const { dataRubric, stepCompleted, setDataRubric } = useContext(DataContext);
 
     const methods = useForm(dataRubric);
 
@@ -53,15 +53,16 @@ const StepperMui = () => {
         const newdataRubric = Object.assign(dataRubric, data);
         setDataRubric(newdataRubric);
 
-        if (activeStep === 1 && dataRubric.listCriterionsArr.length === 0) return alert("Debe agregar almenos un criterio");
+        if (activeStep === 1 && dataRubric.listCriterionsArr.length === 0)
+            return alert("Debe agregar almenos un criterio");
 
         const initialValue = 0;
 
         const sum = dataRubric.listCriterionsArr
             .reduce((acc, ctro) => acc + ctro.value, initialValue);
 
-        if (activeStep === 2 && sum !== 100) return alert("Los porcentajes deben sumar 100%")
-
+        if (activeStep === 2 && sum !== 100)
+            return alert("Los porcentajes deben sumar 100%")
 
         if (isStepSkipped(activeStep)) {
             newSkipped = new Set(newSkipped.values());
@@ -130,11 +131,13 @@ const StepperMui = () => {
                 <>
                     <FormProvider {...methods}>
                         <form onSubmit={methods.handleSubmit(handleNext)}>
+
                             {stepContent(activeStep)}
+
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, width: '100%' }}>
                                 <Button
                                     color="inherit"
-                                    disabled={activeStep === 0}
+                                    disabled={activeStep === 0 || activeStep === 3 || activeStep === 4}
                                     onClick={handleBack}
                                     sx={{ mr: 1 }}
                                     style={{ textTransform: 'none' }}
@@ -147,12 +150,12 @@ const StepperMui = () => {
                                         Skip
                                     </Button>
                                 )}
-
                                 <Button
+                                    disabled={activeStep === 3 && stepCompleted}
                                     style={{ textTransform: 'none' }}
                                     type='submit'
                                 >
-                                    {activeStep === steps.length - 1 ? 'Crear' : 'Siguiente'}
+                                    {activeStep === steps.length - 1 ? 'Crear rubrica' : 'Siguiente'}
                                 </Button>
                             </Box>
                         </form>
