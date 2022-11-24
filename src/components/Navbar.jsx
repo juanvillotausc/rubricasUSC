@@ -23,8 +23,12 @@ const Navbar = () => {
                     <Link style={{ textDecoration: 'none', flexGrow: 1 }} to="/">
                         <Logo>UscRubrics</Logo>
                     </Link>
-                    <Button onClick={toggleTheme} style={{ boxShadow: "none" }}>
-                        {theme.text === '#ffffffd4' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
+                    <Button
+                        onClick={toggleTheme}
+                        style={{ boxShadow: "none", textTransform: "none" }}
+                    >
+                        <Typography style={{ marginRight: 8 }}>{theme.text === '#bfbfbf' ? "Ligth" : "Dark"}</Typography>
+                        {theme.text === '#bfbfbf' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
                     </Button>
                 </Toolbar>
             </ToolbarContainer>
