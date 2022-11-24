@@ -6,7 +6,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const AddDescripter = () => {
 
-    const { dataRubric, setStepCompleted, stepCompleted } = useContext(DataContext);
+    const { dataRubric, setStepCompleted } = useContext(DataContext);
     const criterions = dataRubric.listCriterionsArr;
     const [descripters, setDescripters] = useState([]);
 

@@ -92,8 +92,8 @@ const StepperMui = () => {
         });
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
+    const handleCreateRubric = () => {
+        //TODO: redireccionar a la pagina de la rubrica con los datos creados de los campos
     };
 
     return (
@@ -120,11 +120,11 @@ const StepperMui = () => {
             {activeStep === steps.length ? (
                 <>
                     <Typography sx={{ mt: 2, mb: 1 }}>
-                        All steps completed - you&apos;re finished
+                        Todos los campos han sido completados
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Box sx={{ flex: '1 1 auto' }} />
-                        <Button onClick={handleReset}>Reset</Button>
+                        <Button onClick={handleCreateRubric}>Crear rúbrica</Button>
                     </Box>
                 </>
             ) : (
@@ -155,7 +155,7 @@ const StepperMui = () => {
                                     style={{ textTransform: 'none' }}
                                     type='submit'
                                 >
-                                    {activeStep === steps.length - 1 ? 'Crear rubrica' : 'Siguiente'}
+                                    {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
                                 </Button>
                             </Box>
                         </form>
