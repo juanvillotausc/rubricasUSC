@@ -48,15 +48,14 @@ const HomeScreen = () => {
                         }}>
                             Universidad Santiago de Cali
                         </Typography>
-                        <Title>Rubricas <br /> Analiticas</Title>
+                        <Title>Rúbricas <br /> Analíticas</Title>
                         <h4 style={{ color: "red", marginBottom: 10 }}>Prototype</h4>
                         <Typography style={{
                             fontSize: "1em",
                             textAlign: "left",
                             width: "90%"
                         }}>
-                            Una estrategia de evalucion por medio de rubricas analiticas, ayudando tanto a profesores como estudiantes en su situacion academica.
-                        </Typography>
+                            Una estrategia de evaluación por medio de rúbricas analíticas, ayudando tanto a profesores como estudiantes en su situación académica.                        </Typography>
                         <div style={{ width: "100%" }}>
                             <ButtonStyled style={{
                                 marginTop: 15,
