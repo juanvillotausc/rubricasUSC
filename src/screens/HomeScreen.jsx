@@ -21,6 +21,12 @@ const HomeScreen = () => {
         navigate(`create/${rubric.id}`);
     };
 
+    const handleGenerateRubric = () => {
+        const rubric = AdminRubric.createRubric();
+        setDataRubric(rubric);
+        navigate(`/rubric/generate`);
+    };
+
     return (
         <>
             <Section style={{ padding: 0 }}>
@@ -28,8 +34,8 @@ const HomeScreen = () => {
                     margin: "auto",
                     display: 'flex',
                     flexDirection: 'row',
-                    maxWidth: "1220px",
-                    width: '75%',
+                    maxWidth: "1320px",
+                    width: '85%',
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: "70vh"
@@ -55,23 +61,33 @@ const HomeScreen = () => {
                             textAlign: "left",
                             width: "90%"
                         }}>
-                            Una estrategia de evaluación por medio de rúbricas analíticas, ayudando tanto a profesores como estudiantes en su situación académica.                        </Typography>
+                            Instrumento de evaluación y aprendizaje
+                            que permite determinar el nivel de logro en la resolución de
+                            problemas, evaluar el grado de dominio de las competencias y
+                            comprender aspectos complejos, imprecisos y subjetivos.
+                        </Typography>
                         <div style={{ width: "100%" }}>
-                            <ButtonStyled style={{
-                                marginTop: 15,
-                                marginRight: 15,
-                                textTransform: "none",
-                                backgroundColor: ""
-                            }} onClick={handleCreateRubric}>
+                            <ButtonStyled
+                                style={{
+                                    marginTop: 15,
+                                    marginRight: 15,
+                                    textTransform: "none",
+                                    backgroundColor: ""
+                                }}
+                                onClick={handleCreateRubric}
+                            >
                                 Diseñar
                             </ButtonStyled>
                             <Link style={{ textDecoration: "none" }} to="/rubric/generate">
-                                <ButtonStyled style={{
-                                    marginTop: 15,
-                                    textTransform: "none",
-                                    backgroundColor: ""
-                                }}>
-                                    Generar
+                                <ButtonStyled
+                                    style={{
+                                        marginTop: 15,
+                                        textTransform: "none",
+                                        backgroundColor: ""
+                                    }}
+                                    onClick={handleGenerateRubric}
+                                >
+                                    Rúbrica UML
                                 </ButtonStyled>
                             </Link>
                         </div>

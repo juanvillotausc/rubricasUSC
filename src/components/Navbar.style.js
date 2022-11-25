@@ -47,13 +47,14 @@ export const Section = styled.div`
     padding-bottom: 1em;
     margin: auto;
     @media (max-width: 2560px) {
-        max-width: 1340px;
+        max-width: 1400px;
     }
     @media (max-width: 1440px) {
-        max-width: 1180px;
+        max-width: 1320px;
     }
-    @media (max-width: 1220px) {
-        max-width: 980px;
+    @media (max-width: 1240px) {
+        max-width: 1180px;
+        min-width: 1080px;
     }
     @media (max-width: 1024px) {
         display: none;
@@ -118,7 +119,7 @@ export const NotAllowed = styled.div`
 export const Gridd = styled.div`
     display: grid;
     grid-template-columns: 24.5% 22% 9% 24% 1fr;
-    grid-template-rows: 60px 60px;
+    grid-template-rows: 80px 80px;
     gap: 10px;
 `;
 

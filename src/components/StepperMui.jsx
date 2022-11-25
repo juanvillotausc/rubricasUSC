@@ -10,6 +10,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { DataGeneral, AddCriterion, AddDescripter, AdjustCriterion, AdjustDescripter } from './index';
 import { DataContext } from '../context/DataContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { saveDB } from '../helpers/filesHandler';
+import { useEffect } from 'react';
+
 
 const steps = ['Datos generales', 'Definir criterios', 'Ajustar porcentajes Criterios', "Agregar descriptores", "Ajustar porcentajes Descriptores"];
 
@@ -33,7 +37,8 @@ const StepperMui = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [skipped, setSkipped] = useState(new Set());
     const { dataRubric, stepCompleted, setDataRubric } = useContext(DataContext);
-
+    const criterions = dataRubric.listCriterionsArr;
+    const navigate = useNavigate();
     const methods = useForm(dataRubric);
 
     const isStepOptional = (step) => {
@@ -47,8 +52,6 @@ const StepperMui = () => {
     const handleNext = (data) => {
 
         let newSkipped = skipped;
-
-        console.log(dataRubric);
 
         const newdataRubric = Object.assign(dataRubric, data);
         setDataRubric(newdataRubric);
@@ -93,8 +96,13 @@ const StepperMui = () => {
     };
 
     const handleCreateRubric = () => {
-        //TODO: redireccionar a la pagina de la rubrica con los datos creados de los campos
+        navigate(`/rubric/${dataRubric.id}`);
     };
+
+    useEffect(() => {
+        if (!criterions)
+            navigate("/");
+    }, [criterions])
 
     return (
         <Box sx={{ width: '100%' }}>

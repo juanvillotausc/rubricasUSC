@@ -1,14 +1,14 @@
 import fs from "node:fs";
 
-const pathFile = './db/data.json';
+const pathFile = './db/rubrics.json';
 
-const saveDB = (data) => {
+export const saveDB = (data) => {
 
     fs.writeFileSync(pathFile, JSON.stringify(data));
 
 }
 
-const readDB = () => {
+export const readDB = () => {
 
     if (!fs.existsSync(pathFile)) null;
 
@@ -16,9 +16,4 @@ const readDB = () => {
 
     return JSON.parse(rubrics);
 
-}
-
-module.exports = {
-    saveDB,
-    readDB
-}
+};

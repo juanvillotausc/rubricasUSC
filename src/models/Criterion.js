@@ -9,7 +9,7 @@ class Criterion {
     proposers = "";
     _listDescripters = {};
     value = "";
-    subtotal = "";
+    subtotal = 0;
     constructor(name) {
         this.id = `c-${uuidv4()}`;
         this.title_ctro = name;

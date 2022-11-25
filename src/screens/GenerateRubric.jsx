@@ -1,49 +1,31 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
-import Rubric from '../components/Rubric';
+import React, { useContext, useEffect, useState } from 'react'
+import RubricGenerated from '../components/RubricGenerated';
+import { DataContext } from '../context/DataContext';
 
-const MOCK_DESCRIPTER = [
-    {
-        title: "Descripter 1sdsdasd",
-        result: "No Logrado",
-        average: 0,
-        value: 50,
-        contextA: "Context A",
-        contextB: "Context B"
-    },
-    {
-        title: "Descripter 2",
-        result: "No Logrado",
-        average: 0,
-        value: 50,
-        contextA: "Context A",
-        contextB: "Context B"
-    },
-];
+const RUBRIC_MOCK = {
 
-const MOCK_CRITERIONS = [
-    {
-        criterion: "Criterio 1",
-        comments: "Sin eso",
-        solution: "Hacer trabajo",
-        descripters: MOCK_DESCRIPTER
-    },
-    {
-        criterion: "Criterio 2",
-        result: "No Logrado",
-        comments: "Sin eso",
-        solution: "Hacer trabajo",
-        descripters: MOCK_DESCRIPTER
-    },
-];
+    competency: "Conocer el modelado de un diagrama uml",
+    date: "2022-11-06",
+    learnResult: "Entender el modelado de diagramas de clases UML",
+    name: "Diagrama de clases UML",
+    signature: "Ingenieria de Software",
+    subject: "Identificar y construir diagramas de clases UML",
+    total: 0,
+};
 
 const GenerateRubric = () => {
 
-    const { id } = useParams();
+    const { dataRubric, setDataRubric } = useContext(DataContext);
+    const [rubric, setRubric] = useState({});
 
-    console.log({ id });
+
+
+    useEffect(() => {
+        const newdataRubric = Object.assign(dataRubric, RUBRIC_MOCK);
+        setDataRubric(newdataRubric);
+    }, []);
     return (
-        <Rubric criterions={MOCK_CRITERIONS} />
+        <RubricGenerated setRubric={setRubric} />
     )
 }
 

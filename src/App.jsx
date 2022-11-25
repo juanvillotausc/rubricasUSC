@@ -1,6 +1,6 @@
-import { Navbar, Navigation, Theme } from './components';
+import { Navigation } from './components';
 import { Container, GlobalStyle } from "./components/Navbar.style";
-import DataProvider, { DataContext } from './context/DataContext';
+import DataProvider from './context/DataContext';
 
 const App = () => {
 
