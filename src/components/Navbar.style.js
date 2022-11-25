@@ -4,6 +4,16 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const ToolbarContainer = styled.div`
     background-color: ${({ theme }) => theme.bgc};
     transition: all 0.3s ease-in ;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height:80px;
+    align-items: center;
+    @media (max-width: 2560px) {
+        max-width: 1550px;
+    }
+
 `;
 
 export const Typography = styled.p`
@@ -31,6 +41,17 @@ export const Title = styled.h1`
 export const Logo = styled.h3`
     color: ${({ theme }) => theme.text};
     font-family: "InterBold";
+    padding: 5px;
+    border-radius: 0.5em;
+    border: 1px solid ${({ theme }) => theme.text};
+    transition: all 0.3s ease-in ;
+    &:hover{
+        border: 3px solid black;
+        transition: all 0.3s ease-in ;
+        background-color:${({ theme }) => theme.bgcLogoHover};
+        color:${({ theme }) => theme.colorLogoHover};;
+    }
+
 `;
 
 export const Container = styled.div`

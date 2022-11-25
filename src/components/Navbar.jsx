@@ -17,20 +17,18 @@ const Navbar = () => {
     }
 
     return (
-        <AppBar style={{ boxShadow: "none" }} position="relative">
+        <AppBar style={{ boxShadow: "none", backgroundColor: theme.bgc, transition: "all 0.3s ease-in" }} position="relative">
             <ToolbarContainer>
-                <Toolbar style={{ alignItems: 'left', minHeight: 90 }}>
-                    <Link style={{ textDecoration: 'none', flexGrow: 1 }} to="/">
-                        <Logo>Rubrics-Usc</Logo>
-                    </Link>
-                    <Button
-                        onClick={toggleTheme}
-                        style={{ boxShadow: "none", textTransform: "none" }}
-                    >
-                        <Typography style={{ marginRight: 8 }}>{theme.text === '#bfbfbf' ? "Ligth" : "Dark"}</Typography>
-                        {theme.text === '#bfbfbf' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
-                    </Button>
-                </Toolbar>
+                <Link style={{ textDecoration: 'none' }} to="/">
+                    <Logo><span style={{ fontWeight: "normal", fontSize: 14 }}>USC</span>Rubrics</Logo>
+                </Link>
+                <Button
+                    onClick={toggleTheme}
+                    style={{ boxShadow: "none", textTransform: "none" }}
+                >
+                    <Typography style={{ marginRight: 8 }}>{theme.text === '#bfbfbf' ? "Ligth" : "Dark"}</Typography>
+                    {theme.text === '#bfbfbf' ? <LightModeIcon style={{ color: theme.text }} /> : <DarkModeIcon style={{ color: theme.text }} />}
+                </Button>
             </ToolbarContainer>
         </AppBar >
     )

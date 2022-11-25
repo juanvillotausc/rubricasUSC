@@ -5,7 +5,9 @@ const LightTheme = {
     item: "#f7f7f7",
     border: "rgba(0, 0, 0, 0.05)",
     bgcHeroBtn: "#000",
-    bgcHover: "#424242"
+    bgcHover: "#424242",
+    bgcLogoHover: "black",
+    colorLogoHover: "white"
 };
 
 const DarkTheme = {
@@ -14,7 +16,9 @@ const DarkTheme = {
     item: "#272727",
     border: "#222222",
     bgcHeroBtn: "#000",
-    bgcHover: "#424242"
+    bgcHover: "#424242",
+    bgcLogoHover: "white",
+    colorLogoHover: "black"
 };
 
 const Theme = {
