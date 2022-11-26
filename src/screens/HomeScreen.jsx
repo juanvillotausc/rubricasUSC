@@ -1,17 +1,14 @@
-import { ButtonStyled, NotAllowed, Section, Title, Typography } from "../components/Navbar.style";
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import { useTheme } from "styled-components";
+import { ButtonStyled, Section, Title, Typography } from "../components/Navbar.style";
 import { Box } from "@mui/material";
 import imgHero from "../assets/imgs/headerImg.svg"
-import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AdminRubrics from "../models/AdminRubrics";
 
 const AdminRubric = new AdminRubrics();
 
 const HomeScreen = () => {
-    const theme = useTheme();
     const { setDataRubric } = useContext(DataContext);
     const navigate = useNavigate();
 
@@ -104,10 +101,6 @@ const HomeScreen = () => {
 
                 </Box>
             </Section>
-            <NotAllowed>
-                <PhoneAndroidIcon style={{ transition: "all 0.3s ease-in", textAlign: "center", width: "100%", color: theme.text, fontSize: 70 }} />
-                <Typography style={{ color: theme.text }}>Devices frames <br /> not allowed.</Typography>
-            </NotAllowed>
             <Outlet />
         </>
     )
