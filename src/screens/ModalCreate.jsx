@@ -21,7 +21,7 @@ const styleModal = {
     backgroundColor: "white",
     borderRadius: "5px",
     position: 'relative',
-    overflow: "scroll",
+    overflowY: "auto"
 };
 
 const ModalCreate = () => {
