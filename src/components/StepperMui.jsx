@@ -138,39 +138,35 @@ const StepperMui = () => {
             ) : (
                 <>
                     <FormProvider {...methods}>
-                        <div
-                            style={{ overflowY: "auto", height: "100%" }}
-                        >
-                            <form onSubmit={methods.handleSubmit(handleNext)}>
+                        <form onSubmit={methods.handleSubmit(handleNext)}>
 
-                                {stepContent(activeStep)}
+                            {stepContent(activeStep)}
 
-                                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, width: '100%' }}>
-                                    <Button
-                                        color="inherit"
-                                        disabled={activeStep === 0 || activeStep === 3 || activeStep === 4}
-                                        onClick={handleBack}
-                                        sx={{ mr: 1 }}
-                                        style={{ textTransform: 'none' }}
-                                    >
-                                        Atrás
+                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, width: '100%' }}>
+                                <Button
+                                    color="inherit"
+                                    disabled={activeStep === 0 || activeStep === 3 || activeStep === 4}
+                                    onClick={handleBack}
+                                    sx={{ mr: 1 }}
+                                    style={{ textTransform: 'none' }}
+                                >
+                                    Atrás
+                                </Button>
+                                <Box sx={{ flex: '1 1 auto' }} />
+                                {isStepOptional(activeStep) && (
+                                    <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                                        Skip
                                     </Button>
-                                    <Box sx={{ flex: '1 1 auto' }} />
-                                    {isStepOptional(activeStep) && (
-                                        <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                                            Skip
-                                        </Button>
-                                    )}
-                                    <Button
-                                        disabled={activeStep === 3 && stepCompleted}
-                                        style={{ textTransform: 'none' }}
-                                        type='submit'
-                                    >
-                                        {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
-                                    </Button>
-                                </Box>
-                            </form>
-                        </div>
+                                )}
+                                <Button
+                                    disabled={activeStep === 3 && stepCompleted}
+                                    style={{ textTransform: 'none' }}
+                                    type='submit'
+                                >
+                                    {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
+                                </Button>
+                            </Box>
+                        </form>
                     </FormProvider>
                 </>
             )}
