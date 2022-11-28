@@ -9,7 +9,7 @@ const AdjustPorcentages = () => {
     const handleChangeValue = (e, index) => {
         const { name, value } = e.target;
         const list = [...criterions];
-        const valueNumber = Number(value)
+        const valueNumber = Number(value);
         list[index][name] = valueNumber;
         setCriterions(list);
         console.log(dataRubric);

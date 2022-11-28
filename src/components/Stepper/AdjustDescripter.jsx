@@ -10,7 +10,7 @@ const AdjustDescripter = () => {
 
     const handleChange = (e, descripter) => {
         const { name, value } = e.target;
-        descripter.newValue = value;
+        descripter.newValue = Number(value);
         setDescripters([...descripters, descripter]);
     };
 

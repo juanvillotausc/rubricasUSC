@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Box } from "@mui/material"
-import { Section } from "./Navbar.style"
+import { Section, Typography } from "./Navbar.style"
 import { TableBody, TableHead } from ".";
 import { DataContext } from "../context/DataContext";
 
@@ -135,6 +135,7 @@ const RubricGenerated = ({ setRubric }) => {
 
     return (
         <Section>
+            <Typography style={{ padding: 15, fontSize: 20 }}>Rubrica: {dataRubric.name}</Typography>
             <Box sx={{ flexGrow: 1 }}>
                 <TableHead />
             </Box>
