@@ -60,7 +60,7 @@ const Descripter = ({ criterion, setApprove }) => {
               item
               style={{ height: "100%", gridColumnStart: 1, gridColumnEnd: 3 }}
             >
-              <Item>
+              <Item style={{ backgroundColor: '#448ec030' }}>
                 <Typography style={{ fontSize: 12 }}>{descripter.title_desc}</Typography>
               </Item>
             </Grid>

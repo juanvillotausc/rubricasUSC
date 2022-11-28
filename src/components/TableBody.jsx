@@ -28,7 +28,7 @@ const TableBody = () => {
                 return (
                     <Fragment key={index}>
                         <Grid item xs={2}>
-                            <Item style={{ flexDirection: 'column' }}>
+                            <Item style={{ flexDirection: 'column', backgroundColor: '#4ea7e24e' }}>
                                 <Typography>CE {index + 1}</Typography>
                                 <Typography>{criterion.title_ctro}</Typography>
                                 <Typography>Ponderacion {criterion.value.toFixed(2)}%</Typography>
